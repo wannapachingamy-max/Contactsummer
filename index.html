@@ -4,263 +4,157 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Page</title>
-    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'M PLUS Rounded 1c', sans-serif;
-        }
-
         body {
-            background-color: #f3f3f3;
-            background-image: radial-gradient(#d1d1d1 1px, transparent 1px);
-            background-size: 20px 20px;
-            color: #333333;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f0f1;
+            color: #2b2b2b;
+            /* Subtle dot-grid texture matching image_3 */
+            background-image: radial-gradient(#d1d1d3 1px, transparent 1px);
+            background-size: 24px 24px;
         }
-
-        .container {
-            width: 100%;
-            max-width: 520px;
-            background: #ffffff;
-            border-radius: 28px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
-            overflow: hidden;
-            border: 1px solid #e5e5e5;
-        }
-
-        /* แบนเนอร์ด้านบน */
-        .banner-container {
-            width: 100%;
-            height: 190px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .banner {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: grayscale(100%) contrast(110%);
-        }
-
-        .banner-tag {
-            position: absolute;
-            bottom: 14px;
-            left: 16px;
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(4px);
-            color: #ffffff;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 11px;
-            letter-spacing: 1px;
-        }
-
-        /* ส่วนหัวข้อ */
-        .header-section {
-            padding: 24px 20px 16px 20px;
-            text-align: center;
-        }
-
-        .main-title {
-            font-size: 24px;
-            font-weight: 700;
-            color: #1a1a1a;
-            margin-bottom: 6px;
-        }
-
-        .subtitle {
-            font-size: 13px;
-            color: #777777;
-            margin-bottom: 20px;
-        }
-
-        /* ตาราง 2 คอลัมน์ */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            padding: 0 20px 24px 20px;
-        }
-
+        /* Monochrome glassmorphism card styling matching image_3, image_4, image_5 */
         .contact-card {
-            background: #ffffff;
-            border: 1px solid #eaeaea;
-            border-radius: 16px;
-            padding: 14px 12px;
-            text-decoration: none;
-            color: #333333;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            transition: all 0.2s ease;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(215, 215, 218, 0.8);
+            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
         }
-
         .contact-card:hover {
-            border-color: #cbd5e1;
-            background: #fafafa;
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.98);
+            border-color: #71717a;
+            box-shadow: 0 8px 25px -4px rgba(0, 0, 0, 0.1);
         }
-
-        .card-left {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            overflow: hidden;
-        }
-
-        .icon-box {
-            width: 36px;
-            height: 36px;
-            border-radius: 10px;
-            background: #f4f4f5;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 16px;
-            flex-shrink: 0;
-        }
-
-        .text-box {
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-        }
-
-        .card-label {
-            font-size: 10px;
-            font-weight: 700;
-            color: #9ca3af;
-            letter-spacing: 0.5px;
-        }
-
-        .card-value {
-            font-size: 13px;
-            font-weight: 600;
-            color: #374151;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .arrow {
-            font-size: 12px;
-            color: #9ca3af;
-            flex-shrink: 0;
-            margin-left: 4px;
-        }
-
-        /* ฟุตเตอร์ */
-        .footer {
-            text-align: center;
-            padding: 0 0 20px 0;
-            font-size: 12px;
-            color: #9ca3af;
+        .monochrome-badge {
+            background-color: #e4e4e7;
+            color: #27272a;
         }
     </style>
 </head>
-<body>
+<body class="min-h-screen flex items-center justify-center p-4 sm:p-6 md:p-8">
 
-    <div class="container">
-        <!-- แบนเนอร์ -->
-        <div class="banner-container">
-            <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?q=80&w=600&auto=format&fit=crop" alt="Banner" class="banner">
-            <div class="banner-tag">🤍 CONTACT CHANNEL 🤍</div>
+    <div class="w-full max-w-2xl bg-white/90 backdrop-blur-xl border border-zinc-200/80 shadow-[0_20px_50px_rgba(0,0,0,0.08)] rounded-[2.5rem] p-6 sm:p-10 relative overflow-hidden">
+        
+        <!-- Atmospheric banner header matching monochrome aesthetic -->
+        <div class="mb-6 rounded-2xl overflow-hidden border border-zinc-200 shadow-sm relative h-36 sm:h-44">
+            <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=1000&auto=format&fit=crop" 
+                 onerror="this.src='https://placehold.co/600x200/e4e4e7/71717a?text=SUMMER+ATMOSPHERE'"
+                 alt="Atmosphere Banner" class="w-full h-full object-cover grayscale contrast-125">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent flex items-end p-4 sm:p-6">
+                <span class="text-white text-xs font-medium tracking-widest uppercase bg-black/40 backdrop-blur-md px-3 py-1 rounded-full border border-white/20">
+                    🖤 contact channel 🤍
+                </span>
+            </div>
         </div>
 
-        <!-- หัวข้อ -->
-        <div class="header-section">
-            <h1 class="main-title">Contact</h1>
-            <p class="subtitle">✨ ช่องทางการติดต่อทั้งหมด เลือกช่องทางที่สะดวกได้เลยค่ะ 🕊️</p>
+        <!-- Header section -->
+        <div class="text-center mb-8 relative z-10">
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-zinc-900 tracking-tight">Contact</h1>
+            <p class="text-zinc-500 text-sm sm:text-base mt-2">✨ ช่องทางการติดต่อทั้งหมด เลือกช่องทางที่สะดวกได้เลยค่ะ 🕊️</p>
         </div>
 
-        <!-- การ์ดช่องทางติดต่อ 2 คอลัมน์ พร้อมลิงก์จริง -->
-        <div class="contact-grid">
-            <!-- Line -->
-            <a href="https://lin.ee/xMpT4kF" target="_blank" class="contact-card">
-                <div class="card-left">
-                    <div class="icon-box"><i class="fa-brands fa-line" style="color: #06c755;"></i></div>
-                    <div class="text-box">
-                        <span class="card-label">LINE</span>
-                        <span class="card-value">@yourlineid</span>
-                    </div>
+        <!-- 2-Column Grid matching sketch and layout -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 relative z-10">
+            
+            <!-- Column 1, Row 1: Line -->
+            <a href="https://lin.ee/xMpT4kF" target="_blank" rel="noopener noreferrer" class="contact-card flex items-center p-4 sm:p-5 rounded-2xl group">
+                <div class="w-12 h-12 rounded-xl bg-zinc-100 flex items-center justify-center text-zinc-800 text-xl group-hover:scale-105 transition-transform border border-zinc-200">
+                    <i class="fa-brands fa-line"></i>
                 </div>
-                <i class="fa-solid fa-chevron-right arrow"></i>
+                <div class="ml-4 flex-1">
+                    <h2 class="text-xs font-semibold text-zinc-400 group-hover:text-zinc-900 transition-colors uppercase tracking-wider">Line</h2>
+                    <p class="text-base sm:text-lg font-bold text-zinc-800 tracking-wide">@yourlineid</p>
+                </div>
+                <div class="text-zinc-300 group-hover:text-zinc-800 transition-colors">
+                    <i class="fa-solid fa-chevron-right text-xs"></i>
+                </div>
             </a>
 
-            <!-- X -->
-            <a href="https://x.com/summerluvcat?s=11" target="_blank" class="contact-card">
-                <div class="card-left">
-                    <div class="icon-box"><i class="fa-brands fa-x-twitter" style="color: #000000;"></i></div>
-                    <div class="text-box">
-                        <span class="card-label">X</span>
-                        <span class="card-value">@yourhandle</span>
-                    </div>
+            <!-- Column 2, Row 1: X -->
+            <a href="https://x.com/summerluvcat?s=11" target="_blank" rel="noopener noreferrer" class="contact-card flex items-center p-4 sm:p-5 rounded-2xl group">
+                <div class="w-12 h-12 rounded-xl bg-zinc-100 flex items-center justify-center text-zinc-800 text-xl group-hover:scale-105 transition-transform border border-zinc-200">
+                    <i class="fa-brands fa-x-twitter"></i>
                 </div>
-                <i class="fa-solid fa-chevron-right arrow"></i>
+                <div class="ml-4 flex-1">
+                    <h2 class="text-xs font-semibold text-zinc-400 group-hover:text-zinc-900 transition-colors uppercase tracking-wider">X</h2>
+                    <p class="text-base sm:text-lg font-bold text-zinc-800 tracking-wide">@yourhandle</p>
+                </div>
+                <div class="text-zinc-300 group-hover:text-zinc-800 transition-colors">
+                    <i class="fa-solid fa-chevron-right text-xs"></i>
+                </div>
             </a>
 
-            <!-- Facebook -->
-            <a href="https://www.facebook.com/share/19irMwU74a/?mibextid=wwXIfr" target="_blank" class="contact-card">
-                <div class="card-left">
-                    <div class="icon-box"><i class="fa-brands fa-facebook" style="color: #0866ff;"></i></div>
-                    <div class="text-box">
-                        <span class="card-label">FACEBOOK</span>
-                        <span class="card-value">Your Page Name</span>
-                    </div>
+            <!-- Column 1, Row 2: Facebook -->
+            <a href="https://www.facebook.com/share/19irMwU74a/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="contact-card flex items-center p-4 sm:p-5 rounded-2xl group">
+                <div class="w-12 h-12 rounded-xl bg-zinc-100 flex items-center justify-center text-zinc-800 text-xl group-hover:scale-105 transition-transform border border-zinc-200">
+                    <i class="fa-brands fa-facebook-f"></i>
                 </div>
-                <i class="fa-solid fa-chevron-right arrow"></i>
+                <div class="ml-4 flex-1">
+                    <h2 class="text-xs font-semibold text-zinc-400 group-hover:text-zinc-900 transition-colors uppercase tracking-wider">Facebook</h2>
+                    <p class="text-base sm:text-lg font-bold text-zinc-800 tracking-wide">Your Page Name</p>
+                </div>
+                <div class="text-zinc-300 group-hover:text-zinc-800 transition-colors">
+                    <i class="fa-solid fa-chevron-right text-xs"></i>
+                </div>
             </a>
 
-            <!-- Instargram -->
-            <a href="#" target="_blank" class="contact-card">
-                <div class="card-left">
-                    <div class="icon-box"><i class="fa-brands fa-instagram" style="color: #e1306c;"></i></div>
-                    <div class="text-box">
-                        <span class="card-label">INSTARGRAM</span>
-                        <span class="card-value">@your_ig</span>
-                    </div>
+            <!-- Column 2, Row 2: Instagram -->
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="contact-card flex items-center p-4 sm:p-5 rounded-2xl group">
+                <div class="w-12 h-12 rounded-xl bg-zinc-100 flex items-center justify-center text-zinc-800 text-xl group-hover:scale-105 transition-transform border border-zinc-200">
+                    <i class="fa-brands fa-instagram"></i>
                 </div>
-                <i class="fa-solid fa-chevron-right arrow"></i>
+                <div class="ml-4 flex-1">
+                    <h2 class="text-xs font-semibold text-zinc-400 group-hover:text-zinc-900 transition-colors uppercase tracking-wider">Instargram</h2>
+                    <p class="text-base sm:text-lg font-bold text-zinc-800 tracking-wide">@your_ig</p>
+                </div>
+                <div class="text-zinc-300 group-hover:text-zinc-800 transition-colors">
+                    <i class="fa-solid fa-chevron-right text-xs"></i>
+                </div>
             </a>
 
-            <!-- Tiktok -->
-            <a href="https://www.tiktok.com/@sum.kawaii?_r=1&_d=secCgYIASAHKAESPgo8uMhbbSHMow2iSuih4Y%2FwjurYD0HhjF5lXn4klDBtu1884%2BEGBT51ykGC1NATgpXaO6hyTpoXm6IZ%2FgD%2BGgA%3D&_svg=1&checksum=8c22ff25dea4b5b8af417cced160beaf8752e6ec54464fbb0f7cad5ffa03e84c&item_author_type=1&panel_source_v2=share_panel&reflow_sign_scene=7&rgssign=8.1.42nPI9loTAF_yYj3r-JSkA&sec_uid=MS4wLjABAAAAQ7lVtMN-tsUBxz6sKHTZTp6tzLKwOJS-feXmArB-mynXeoSV429k3PC3tbMeyFA4&sec_user_id=MS4wLjABAAAAQ7lVtMN-tsUBxz6sKHTZTp6tzLKwOJS-feXmArB-mynXeoSV429k3PC3tbMeyFA4&share_app_id=1180&share_author_id=7472685106571494416&share_enter_from=personal_homepage&share_link_id=0DCA7F38-1324-4195-9564-F59A17DEB55A&share_region=TH&share_scene=1&sharer_language=en&social_share_type=5&source=h5_t&timestamp=1790573609&tt_from=copy&u_code=eimi2lhkk41k10&ug_btm=b0&user_id=7472685106571494416&utm_campaign=client_share&utm_medium=ios&utm_source=copy" target="_blank" class="contact-card">
-                <div class="card-left">
-                    <div class="icon-box"><i class="fa-brands fa-tiktok" style="color: #000000;"></i></div>
-                    <div class="text-box">
-                        <span class="card-label">TIKTOK</span>
-                        <span class="card-value">@yourtiktok</span>
-                    </div>
+            <!-- Column 1, Row 3: Tiktok -->
+            <a href="https://www.tiktok.com/@sum.kawaii?_r=1&_d=secCgYIASAHKAESPgo8uMhbbSHMow2iSuih4Y%2FwjurYD0HhjF5lXn4klDBtu1884%2BEGBT51ykGC1NATgpXaO6hyTpoXm6IZ%2FgD%2BGgA%3D&_svg=1&checksum=8c22ff25dea4b5b8af417cced160beaf8752e6ec54464fbb0f7cad5ffa03e84c&item_author_type=1&panel_source_v2=share_panel&reflow_sign_scene=7&rgssign=8.1.42nPI9loTAF_yYj3r-JSkA&sec_uid=MS4wLjABAAAAQ7lVtMN-tsUBxz6sKHTZTp6tzLKwOJS-feXmArB-mynXeoSV429k3PC3tbMeyFA4&sec_user_id=MS4wLjABAAAAQ7lVtMN-tsUBxz6sKHTZTp6tzLKwOJS-feXmArB-mynXeoSV429k3PC3tbMeyFA4&share_app_id=1180&share_author_id=7472685106571494416&share_enter_from=personal_homepage&share_link_id=0DCA7F38-1324-4195-9564-F59A17DEB55A&share_region=TH&share_scene=1&sharer_language=en&social_share_type=5&source=h5_t&timestamp=1790573609&tt_from=copy&u_code=eimi2lhkk41k10&ug_btm=b0&user_id=7472685106571494416&utm_campaign=client_share&utm_medium=ios&utm_source=copy" target="_blank" rel="noopener noreferrer" class="contact-card flex items-center p-4 sm:p-5 rounded-2xl group">
+                <div class="w-12 h-12 rounded-xl bg-zinc-100 flex items-center justify-center text-zinc-800 text-xl group-hover:scale-105 transition-transform border border-zinc-200">
+                    <i class="fa-brands fa-tiktok"></i>
                 </div>
-                <i class="fa-solid fa-chevron-right arrow"></i>
+                <div class="ml-4 flex-1">
+                    <h2 class="text-xs font-semibold text-zinc-400 group-hover:text-zinc-900 transition-colors uppercase tracking-wider">Tiktok</h2>
+                    <p class="text-base sm:text-lg font-bold text-zinc-800 tracking-wide">@yourtiktok</p>
+                </div>
+                <div class="text-zinc-300 group-hover:text-zinc-800 transition-colors">
+                    <i class="fa-solid fa-chevron-right text-xs"></i>
+                </div>
             </a>
 
-            <!-- Gmail -->
-            <a href="mailto:your-email@gmail.com" class="contact-card">
-                <div class="card-left">
-                    <div class="icon-box"><i class="fa-solid fa-envelope" style="color: #ea4335;"></i></div>
-                    <div class="text-box">
-                        <span class="card-label">GMAIL</span>
-                        <span class="card-value">hello@example.c...</span>
-                    </div>
+            <!-- Column 2, Row 3: Gmail -->
+            <a href="mailto:contact@example.com" class="contact-card flex items-center p-4 sm:p-5 rounded-2xl group">
+                <div class="w-12 h-12 rounded-xl bg-zinc-100 flex items-center justify-center text-zinc-800 text-xl group-hover:scale-105 transition-transform border border-zinc-200">
+                    <i class="fa-solid fa-envelope"></i>
                 </div>
-                <i class="fa-solid fa-chevron-right arrow"></i>
+                <div class="ml-4 flex-1 overflow-hidden">
+                    <h2 class="text-xs font-semibold text-zinc-400 group-hover:text-zinc-900 transition-colors uppercase tracking-wider">Gmail</h2>
+                    <p class="text-sm sm:text-base font-bold text-zinc-800 tracking-wide truncate">hello@example.com</p>
+                </div>
+                <div class="text-zinc-300 group-hover:text-zinc-800 transition-colors ml-2">
+                    <i class="fa-solid fa-chevron-right text-xs"></i>
+                </div>
             </a>
+
         </div>
 
-        <div class="footer">
-            <span>🤍 contact 🤍</span>
+        <!-- Footer note -->
+        <div class="mt-8 text-center text-xs text-zinc-400 border-t border-zinc-200 pt-6">
+            🖤 · contact · 🤍
         </div>
+
     </div>
 
 </body>
